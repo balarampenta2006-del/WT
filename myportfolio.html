@@ -1,0 +1,443 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Balaram Penta | Entrepreneur & Innovator</title>
+  <meta name="description" content="Official portfolio of Balaram Penta - entrepreneur, innovator, and tech enthusiast. Explore projects, connect on social media, or get in touch." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --gold:#f5c518; --gold-light:#ffd95e; --dark:#0a0a0f; --dark2:#111118;
+      --dark3:#16161f; --card:#1a1a26; --border:rgba(245,197,24,0.18);
+      --text:#e8e8f0; --muted:#8888aa; --accent:#7c3aed; --accent2:#a855f7; --radius:16px;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: "Inter",sans-serif; background:var(--dark); color:var(--text); overflow-x:hidden; }
+    body::before {
+      content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
+      background:
+        radial-gradient(ellipse 80% 60% at 20% 10%,rgba(124,58,237,.15) 0%,transparent 60%),
+        radial-gradient(ellipse 60% 50% at 80% 80%,rgba(245,197,24,.10) 0%,transparent 60%);
+    }
+    .particles { position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden; }
+    .particle { position:absolute; border-radius:50%; opacity:.4; animation:floatUp linear infinite; }
+    @keyframes floatUp {
+      0%{transform:translateY(110vh) scale(0);opacity:0;}
+      10%{opacity:.4;} 90%{opacity:.2;}
+      100%{transform:translateY(-10vh) scale(1);opacity:0;}
+    }
+    nav {
+      position:fixed; top:0; left:0; right:0; z-index:100;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:1rem 4rem; background:rgba(10,10,15,.8);
+      backdrop-filter:blur(20px); border-bottom:1px solid var(--border);
+    }
+    .nav-logo {
+      font-family:"Outfit",sans-serif; font-size:1.6rem; font-weight:800;
+      background:linear-gradient(135deg,var(--gold),var(--accent2));
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+    }
+    .nav-links { display:flex; gap:2rem; list-style:none; }
+    .nav-links a { color:var(--muted); text-decoration:none; font-size:.9rem; font-weight:500; letter-spacing:.05em; transition:color .3s; }
+    .nav-links a:hover { color:var(--gold); }
+    #home {
+      position:relative; z-index:1; min-height:100vh;
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      text-align:center; padding:8rem 2rem 4rem;
+    }
+    .avatar-wrapper { position:relative; width:200px; height:200px; margin-bottom:2.5rem; }
+    .avatar-ring {
+      position:absolute; inset:-6px; border-radius:50%;
+      background:conic-gradient(var(--gold),var(--accent2),var(--gold-light),var(--gold));
+      animation:spin 4s linear infinite; z-index:0;
+    }
+    @keyframes spin { to{transform:rotate(360deg);} }
+    .avatar-inner { position:absolute; inset:4px; background:var(--dark); border-radius:50%; z-index:1; }
+    .avatar-img {
+      position:absolute; inset:8px; border-radius:50%;
+      object-fit:cover; object-position:top center; z-index:2;
+      width:calc(100% - 16px); height:calc(100% - 16px);
+    }
+    .status-badge {
+      position:absolute; bottom:6px; right:6px; z-index:3;
+      background:#22c55e; width:20px; height:20px; border-radius:50%;
+      border:3px solid var(--dark); animation:pulse-green 2s ease infinite;
+    }
+    @keyframes pulse-green {
+      0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,.6);}
+      50%{box-shadow:0 0 0 8px rgba(34,197,94,0);}
+    }
+    .hero-tag {
+      display:inline-flex; align-items:center; gap:.5rem;
+      background:rgba(245,197,24,.1); border:1px solid var(--border);
+      border-radius:50px; padding:.4rem 1.2rem;
+      font-size:.8rem; font-weight:600; letter-spacing:.1em;
+      color:var(--gold); text-transform:uppercase; margin-bottom:1.2rem;
+      animation:fadeSlideDown .8s ease both;
+    }
+    h1.hero-name {
+      font-family:"Outfit",sans-serif; font-size:clamp(2.8rem,7vw,5.5rem);
+      font-weight:900; line-height:1.05; letter-spacing:-.02em;
+      animation:fadeSlideDown .9s ease .1s both;
+    }
+    h1.hero-name span {
+      background:linear-gradient(135deg,var(--gold) 0%,var(--gold-light) 40%,var(--accent2) 100%);
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+    }
+    .hero-tagline {
+      font-family:"Outfit",sans-serif; font-size:1.25rem; font-weight:300;
+      color:var(--muted); margin:1rem 0 2rem; max-width:520px;
+      animation:fadeSlideDown 1s ease .2s both;
+    }
+    .hero-tagline strong { color:var(--text); font-weight:600; }
+    .hero-cta { display:flex; gap:1rem; flex-wrap:wrap; justify-content:center; animation:fadeSlideDown 1s ease .3s both; }
+    .btn-primary, .btn-outline {
+      padding:.85rem 2.2rem; border-radius:50px; font-size:.95rem; font-weight:600;
+      cursor:pointer; text-decoration:none; display:inline-flex; align-items:center;
+      gap:.5rem; transition:all .3s ease;
+    }
+    .btn-primary { background:linear-gradient(135deg,var(--gold),var(--accent2)); color:#0a0a0f; border:none; }
+    .btn-primary:hover { transform:translateY(-3px); box-shadow:0 12px 30px rgba(245,197,24,.4); }
+    .btn-outline { background:transparent; border:1.5px solid var(--border); color:var(--text); }
+    .btn-outline:hover { border-color:var(--gold); color:var(--gold); transform:translateY(-3px); }
+    .stats-row { display:flex; gap:3rem; margin-top:4rem; animation:fadeSlideDown 1s ease .4s both; }
+    .stat { text-align:center; }
+    .stat-num { font-family:"Outfit",sans-serif; font-size:2rem; font-weight:800; color:var(--gold); }
+    .stat-label { font-size:.78rem; color:var(--muted); letter-spacing:.05em; margin-top:.2rem; }
+    section { position:relative; z-index:1; }
+    .section-header { text-align:center; margin-bottom:4rem; }
+    .section-tag { display:inline-block; font-size:.75rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:var(--gold); margin-bottom:.75rem; }
+    .section-title { font-family:"Outfit",sans-serif; font-size:clamp(2rem,4vw,3rem); font-weight:800; line-height:1.15; }
+    .section-title span { background:linear-gradient(135deg,var(--gold),var(--accent2)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+    .section-divider { width:60px; height:3px; background:linear-gradient(90deg,var(--gold),var(--accent2)); border-radius:2px; margin:1rem auto 0; }
+    .container { max-width:1100px; margin:0 auto; padding:0 2rem; }
+    .section-pad { padding:7rem 0; }
+    #about { background:var(--dark2); }
+    .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; }
+    .about-img-wrap { position:relative; }
+    .about-img-wrap img { width:100%; border-radius:var(--radius); object-fit:cover; object-position:top center; height:420px; filter:saturate(.9); }
+    .about-img-wrap::after { content:""; position:absolute; inset:0; border-radius:var(--radius); background:linear-gradient(135deg,rgba(124,58,237,.2),rgba(245,197,24,.1)); pointer-events:none; }
+    .about-badge { position:absolute; bottom:-20px; left:50%; transform:translateX(-50%); background:linear-gradient(135deg,var(--gold),var(--accent)); color:#0a0a0f; padding:.6rem 1.5rem; border-radius:50px; font-size:.85rem; font-weight:700; white-space:nowrap; z-index:2; }
+    .about-text p { color:var(--muted); line-height:1.85; font-size:1rem; margin-bottom:1.2rem; }
+    .about-text p strong { color:var(--text); }
+    .skills-chips { display:flex; flex-wrap:wrap; gap:.6rem; margin-top:1.5rem; }
+    .chip { padding:.35rem 1rem; border-radius:50px; border:1px solid var(--border); font-size:.8rem; font-weight:500; color:var(--gold); background:rgba(245,197,24,.06); transition:all .3s; }
+    .chip:hover { background:rgba(245,197,24,.15); transform:translateY(-2px); }
+    #services { background:var(--dark3); }
+    .services-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; }
+    .service-card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:2rem; transition:all .35s ease; position:relative; overflow:hidden; }
+    .service-card::before { content:""; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--gold),var(--accent2)); transform:scaleX(0); transform-origin:left; transition:transform .4s ease; }
+    .service-card:hover { transform:translateY(-8px); border-color:rgba(245,197,24,.4); }
+    .service-card:hover::before { transform:scaleX(1); }
+    .service-icon { width:56px; height:56px; border-radius:14px; background:linear-gradient(135deg,rgba(245,197,24,.15),rgba(124,58,237,.15)); display:flex; align-items:center; justify-content:center; margin-bottom:1.2rem; font-size:1.5rem; color:var(--gold); }
+    .service-card h3 { font-family:"Outfit",sans-serif; font-size:1.15rem; font-weight:700; margin-bottom:.6rem; }
+    .service-card p { font-size:.88rem; color:var(--muted); line-height:1.7; }
+    #connect { background:var(--dark2); }
+    .social-cards { display:flex; justify-content:center; gap:2rem; flex-wrap:wrap; }
+    .social-card { width:200px; padding:2rem 1.5rem; background:var(--card); border:1px solid var(--border); border-radius:var(--radius); text-align:center; text-decoration:none; color:var(--text); transition:all .35s ease; display:flex; flex-direction:column; align-items:center; gap:1rem; }
+    .social-card:hover { transform:translateY(-10px) scale(1.03); box-shadow:0 20px 50px rgba(0,0,0,.4); }
+    .social-icon { width:64px; height:64px; border-radius:18px; display:flex; align-items:center; justify-content:center; font-size:1.8rem; transition:all .3s; }
+    .social-card:hover .social-icon { transform:rotate(-5deg) scale(1.1); }
+    .s-github .social-icon { background:#24292e; color:#fff; }
+    .s-linkedin .social-icon { background:#0077B5; color:#fff; }
+    .s-instagram .social-icon { background:linear-gradient(135deg,#405de6,#5851db,#833ab4,#c13584,#e1306c,#fd1d1d,#f56040,#f77737,#fcaf45); color:#fff; }
+    .s-github:hover { border-color:#6e7681; }
+    .s-linkedin:hover { border-color:#0077B5; }
+    .s-instagram:hover { border-color:#c13584; }
+    .social-card span { font-size:.9rem; font-weight:600; }
+    .social-handle { font-size:.75rem; color:var(--muted); }
+    #contact { background:var(--dark3); }
+    .contact-wrapper { display:grid; grid-template-columns:1fr 1.4fr; gap:4rem; align-items:start; }
+    .contact-info { display:flex; flex-direction:column; gap:1.5rem; }
+    .info-card { display:flex; align-items:flex-start; gap:1rem; background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:1.2rem 1.5rem; text-decoration:none; color:var(--text); transition:all .3s; }
+    .info-card:hover { border-color:var(--gold); transform:translateX(6px); }
+    .info-icon { width:44px; height:44px; border-radius:12px; flex-shrink:0; background:linear-gradient(135deg,rgba(245,197,24,.2),rgba(124,58,237,.2)); display:flex; align-items:center; justify-content:center; font-size:1.1rem; color:var(--gold); }
+    .info-content { flex:1; }
+    .info-content small { font-size:.72rem; color:var(--muted); text-transform:uppercase; letter-spacing:.1em; }
+    .info-content p { font-size:.92rem; font-weight:500; margin-top:.2rem; }
+    .contact-form { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:2.5rem; }
+    .contact-form h3 { font-family:"Outfit",sans-serif; font-size:1.4rem; font-weight:700; margin-bottom:.3rem; }
+    .contact-form > p { font-size:.85rem; color:var(--muted); margin-bottom:2rem; }
+    .form-group { margin-bottom:1.2rem; }
+    .form-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+    label { display:block; font-size:.78rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); margin-bottom:.4rem; }
+    input[type="text"],input[type="tel"],input[type="email"],textarea { width:100%; background:var(--dark2); border:1.5px solid var(--border); border-radius:10px; padding:.8rem 1rem; color:var(--text); font-family:"Inter",sans-serif; font-size:.9rem; outline:none; transition:border-color .3s,box-shadow .3s; }
+    input:focus,textarea:focus { border-color:var(--gold); box-shadow:0 0 0 3px rgba(245,197,24,.1); }
+    textarea { resize:vertical; min-height:120px; }
+    .btn-submit { width:100%; padding:1rem; background:linear-gradient(135deg,var(--gold),var(--accent2)); color:#0a0a0f; border:none; border-radius:10px; font-family:"Outfit",sans-serif; font-size:1rem; font-weight:700; cursor:pointer; letter-spacing:.04em; transition:all .35s; display:flex; align-items:center; justify-content:center; gap:.6rem; margin-top:.5rem; }
+    .btn-submit:hover { transform:translateY(-3px); box-shadow:0 12px 30px rgba(245,197,24,.4); }
+    #success-popup { position:fixed; bottom:2rem; right:2rem; z-index:999; background:#22c55e; color:#fff; padding:1rem 1.8rem; border-radius:12px; font-weight:600; font-size:.95rem; display:none; align-items:center; gap:.6rem; box-shadow:0 8px 30px rgba(34,197,94,.4); animation:slideInRight .4s ease; }
+    @keyframes slideInRight { from{transform:translateX(120%);opacity:0;} to{transform:translateX(0);opacity:1;} }
+    footer { position:relative; z-index:1; background:var(--dark); border-top:1px solid var(--border); text-align:center; padding:2.5rem 2rem; }
+    footer p { color:var(--muted); font-size:.85rem; }
+    footer span { color:var(--gold); }
+    .footer-socials { display:flex; justify-content:center; gap:1.2rem; margin-bottom:1.2rem; }
+    .footer-socials a { color:var(--muted); text-decoration:none; font-size:1.2rem; transition:color .3s,transform .3s; }
+    .footer-socials a:hover { color:var(--gold); transform:translateY(-4px); }
+    @keyframes fadeSlideDown { from{opacity:0;transform:translateY(-24px);} to{opacity:1;transform:translateY(0);} }
+    .reveal { opacity:0; transform:translateY(30px); transition:opacity .7s ease,transform .7s ease; }
+    .reveal.visible { opacity:1; transform:translateY(0); }
+    @media(max-width:900px) {
+      nav{padding:1rem 2rem;}
+      .about-grid{grid-template-columns:1fr;}
+      .contact-wrapper{grid-template-columns:1fr;}
+      .stats-row{gap:2rem;}
+      .nav-links{display:none;}
+    }
+    @media(max-width:600px) {
+      .form-row{grid-template-columns:1fr;}
+      .stats-row{flex-wrap:wrap;justify-content:center;gap:1.5rem;}
+    }
+  </style>
+</head>
+<body>
+
+<div class="particles" id="particles"></div>
+
+<nav>
+  <div class="nav-logo">BM</div>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Vision</a></li>
+    <li><a href="#connect">Connect</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="btn-primary" style="padding:.55rem 1.4rem;font-size:.85rem;">Let&apos;s Talk</a>
+</nav>
+
+<section id="home">
+  <div class="avatar-wrapper">
+    <div class="avatar-ring"></div>
+    <div class="avatar-inner"></div>
+    <img src="profile.jpeg" alt="Balaram Penta" class="avatar-img" />
+    <div class="status-badge"></div>
+  </div>
+  <div class="hero-tag"><i class="fa-solid fa-bolt"></i> Entrepreneur &amp; Innovator</div>
+  <h1 class="hero-name">Hello, I&apos;m<br /><span>Balaram Penta</span></h1>
+  <p class="hero-tagline">Building <strong>tomorrow&apos;s solutions</strong> today &mdash; tech-driven ventures, bold ideas, and relentless execution.</p>
+  <div class="hero-cta">
+    <a href="#contact" class="btn-primary"><i class="fa-solid fa-paper-plane"></i> Get In Touch</a>
+    <a href="#about" class="btn-outline"><i class="fa-solid fa-user"></i> Know More</a>
+  </div>
+  <div class="stats-row">
+    <div class="stat"><div class="stat-num">3+</div><div class="stat-label">Years of Vision</div></div>
+    <div class="stat"><div class="stat-num">10+</div><div class="stat-label">Projects Built</div></div>
+    <div class="stat"><div class="stat-num">&infin;</div><div class="stat-label">Ideas in Mind</div></div>
+  </div>
+</section>
+
+<section id="about" class="section-pad">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-tag">Who I Am</div>
+      <h2 class="section-title">The <span>Entrepreneur</span> Behind the Vision</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-img-wrap reveal">
+        <img src="profile.jpeg" alt="Balaram Penta" />
+        <div class="about-badge">&#x1F680; Open to Collaborations</div>
+      </div>
+      <div class="about-text reveal">
+        <p>I&apos;m <strong>Balaram Penta</strong>, a passionate entrepreneur and tech enthusiast on a mission to solve real-world problems through innovative technology and bold business strategies.</p>
+        <p>With a strong foundation in technology and a relentless entrepreneurial spirit, I thrive on turning ideas into impact &mdash; crafting products, building teams, and scaling ventures that make a difference.</p>
+        <p>I believe in the power of <strong>continuous learning</strong>, meaningful connections, and creating value for the people and communities around me.</p>
+        <div class="skills-chips">
+          <span class="chip">Business Strategy</span>
+          <span class="chip">Tech Innovation</span>
+          <span class="chip">Product Thinking</span>
+          <span class="chip">Leadership</span>
+          <span class="chip">Web Dev</span>
+          <span class="chip">Growth Hacking</span>
+          <span class="chip">Networking</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="section-pad">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-tag">What I Do</div>
+      <h2 class="section-title">My <span>Entrepreneurial</span> Focus</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-icon"><i class="fa-solid fa-lightbulb"></i></div>
+        <h3>Idea to Execution</h3>
+        <p>Transforming raw ideas into structured business models with clear roadmaps, milestones, and execution strategies.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><i class="fa-solid fa-code"></i></div>
+        <h3>Tech Ventures</h3>
+        <p>Building technology-first solutions from MVPs to full-scale platforms with modern web technologies.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><i class="fa-solid fa-chart-line"></i></div>
+        <h3>Growth &amp; Scale</h3>
+        <p>Driving user acquisition, revenue growth, and brand presence through data-driven strategies and community building.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><i class="fa-solid fa-handshake"></i></div>
+        <h3>Networking &amp; Partnerships</h3>
+        <p>Creating meaningful collaborations with fellow entrepreneurs, investors, and changemakers to amplify impact.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><i class="fa-solid fa-brain"></i></div>
+        <h3>Innovation Culture</h3>
+        <p>Fostering environments where creativity thrives encouraging teams to experiment, iterate, and grow fearlessly.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><i class="fa-solid fa-globe"></i></div>
+        <h3>Digital Presence</h3>
+        <p>Crafting strong personal and business brands that resonate, engage, and build lasting trust with audiences.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="connect" class="section-pad">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-tag">Follow Along</div>
+      <h2 class="section-title">Let&apos;s <span>Connect</span></h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="social-cards">
+      <a href="https://github.com/balarampenta2006-del" target="_blank" rel="noopener" class="social-card s-github reveal">
+        <div class="social-icon"><i class="fa-brands fa-github"></i></div>
+        <span>GitHub</span>
+        <span class="social-handle">@balarampenta2006-del</span>
+      </a>
+      <a href="https://www.linkedin.com/in/balaram-penta-089a20330" target="_blank" rel="noopener" class="social-card s-linkedin reveal">
+        <div class="social-icon"><i class="fa-brands fa-linkedin-in"></i></div>
+        <span>LinkedIn</span>
+        <span class="social-handle">balaram-penta</span>
+      </a>
+      <a href="https://www.instagram.com/balaram_bm_?igsh=NGQyanUzdzZzaWwx" target="_blank" rel="noopener" class="social-card s-instagram reveal">
+        <div class="social-icon"><i class="fa-brands fa-instagram"></i></div>
+        <span>Instagram</span>
+        <span class="social-handle">@balaram_bm_</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="section-pad">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-tag">Say Hello</div>
+      <h2 class="section-title">Contact <span>Us</span></h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="contact-wrapper">
+      <div class="contact-info reveal">
+        <a href="tel:+918897887195" class="info-card">
+          <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
+          <div class="info-content">
+            <small>Mobile Number</small>
+            <p>+91 88978 87195</p>
+          </div>
+        </a>
+        <a href="mailto:balaram.penta2006@gmail.com" class="info-card">
+          <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
+          <div class="info-content">
+            <small>Email Address</small>
+            <p>balaram.penta2006@gmail.com</p>
+          </div>
+        </a>
+        <a href="https://share.google/bAVsSwMKsd1hwEwSv" target="_blank" rel="noopener" class="info-card">
+          <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div class="info-content">
+            <small>Location</small>
+            <p>Andhra Pradesh, India <span style="font-size:.78rem;color:var(--gold);">&#8594; View on Map</span></p>
+          </div>
+        </a>
+        <div class="info-card" style="pointer-events:none;">
+          <div class="info-icon"><i class="fa-solid fa-clock"></i></div>
+          <div class="info-content">
+            <small>Availability</small>
+            <p>Mon &ndash; Sat, 9 AM &ndash; 8 PM IST</p>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form reveal">
+        <h3>Send a Message</h3>
+        <p>Have an idea, collaboration, or just want to say hi? Drop a message below!</p>
+        <form id="contactForm" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="uname">Your Name</label>
+              <input type="text" id="uname" placeholder="John Doe" required />
+            </div>
+            <div class="form-group">
+              <label for="umobile">Mobile Number</label>
+              <input type="tel" id="umobile" placeholder="+91 XXXXX XXXXX" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="uemail">Gmail / Email</label>
+            <input type="email" id="uemail" placeholder="you@gmail.com" required />
+          </div>
+          <div class="form-group">
+            <label for="umessage">Message</label>
+            <textarea id="umessage" rows="5" placeholder="Tell me about your idea, project, or collaboration..." required></textarea>
+          </div>
+          <button type="submit" class="btn-submit">
+            <i class="fa-solid fa-paper-plane"></i> Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-socials">
+    <a href="https://github.com/balarampenta2006-del" target="_blank" rel="noopener" title="GitHub"><i class="fa-brands fa-github"></i></a>
+    <a href="https://www.linkedin.com/in/balaram-penta-089a20330" target="_blank" rel="noopener" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+    <a href="https://www.instagram.com/balaram_bm_?igsh=NGQyanUzdzZzaWwx" target="_blank" rel="noopener" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+    <a href="mailto:balaram.penta2006@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+  </div>
+  <p>&copy; 2026 <span>Balaram Penta</span> &middot; Designed with <span>&hearts;</span> &middot; All Rights Reserved</p>
+</footer>
+
+<div id="success-popup">
+  <i class="fa-solid fa-circle-check"></i> Message sent successfully!
+</div>
+
+<script>
+(function(){
+  var c=document.getElementById("particles");
+  var colors=["#f5c518","#a855f7","#7c3aed","#ffd95e","#fff"];
+  for(var i=0;i<28;i++){
+    var p=document.createElement("div");
+    p.className="particle";
+    var s=Math.random()*5+2;
+    p.style.cssText="width:"+s+"px;height:"+s+"px;background:"+colors[Math.floor(Math.random()*colors.length)]+";left:"+Math.random()*100+"%;animation-duration:"+(Math.random()*18+10)+"s;animation-delay:"+(Math.random()*10)+"s;";
+    c.appendChild(p);
+  }
+})();
+var obs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add("visible");});
+},{threshold:0.12});
+document.querySelectorAll(".reveal").forEach(function(el){obs.observe(el);});
+function handleSubmit(e){
+  e.preventDefault();
+  var popup=document.getElementById("success-popup");
+  popup.style.display="flex";
+  setTimeout(function(){popup.style.display="none";},3500);
+  e.target.reset();
+}
+</script>
+</body>
+</html>
+
